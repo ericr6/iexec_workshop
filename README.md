@@ -102,9 +102,9 @@ Warning: remember we are in testing configuration, in mainnet, manage your walle
 keep your private safe, you can loose all your cryptocurrencies without recovery possible.     
 
 Open your metamask extension and select import 
-![import in myether wallet][images/mew_import.png]
+![import in myether wallet](images/mew_import.png)
 
-![import private key][images/mew_newaccount.png]
+![import private key](images/mew_newaccount.png)
 
 
 
