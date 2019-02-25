@@ -7,9 +7,65 @@ While iExec is in its development phase, we allow transactions on Ethereum’s K
 Sometimes referred to as test network, it uses Kovan ETH tokens that hold no real value and are used solely for testing purposes.
  
 
+## Introduction
+
+We recommend to read
+
+the iExec Marketplace
+
+https://docs.iex.ec/intro.html
+
+and the iExec solution stack
+
+https://docs.iex.ec/products.html
+
+### Glossary
+
+Ethereum:
+    Ethereum is an open-source, public, blockchain-based distributed computing platform and operating system featuring smart contract functionality.
+
+Smart Contract:
+    Smart contracts help you exchange anything of value in a transparent, conflict-free way without needing the services of a middleman or third party. It is a computer protocol intended to digitally facilitate the negotiation of a contract. Smart contracts use blockchain to automate consensus over transactions. The transactions within these contracts are fully publicly auditable, traceable and irreversible.
+
+Tokens:
+
+RLC:
+    RLC tokens will be used to access the resources provided through iExec. It is the unique method of payment between application providers, server providers and data providers.
+
+Gas:
+    Transaction execution (smart contract) takes some amount of gas in ETH, Each lines of code executed cost a few amount of gas.
+    this gas is used to calculate the amount of fees that need to be paid to the network in order to execute an operation.
+    the mechanism protect the whole system. 
+
+Dapp:
+    Dapp is an abbreviated form for decentralized application. For a dapp, the backend code is based on a decentralized peer-to-peer network. For example, dapps can be based on Ethereum smart contracts. Contrast this a with a normal app, where the backend code runs on centralized servers.
+    iExec Dapps are powered by the decentralized cloud infrastructure with machines distributed over the Ethereum network. Rather than relying on computing power from a single centralized data center.
+
+Dataset:
+    A dataset is a collection of related sets of information that is composed of separate elements, such as numbers, semantic-data or variables, that can be manipulated by a computer for practical application. For example, iExec data to be used within the medial industry can be use healthcare professionals, care providers, insurers, and government agencies.
+
+Task:
+    A task within iExec is an instance where computing power is required.
+
+Requester:
+    An individual or enterprise requesting the use of cloud resources through iExec.
+
+Worker:
+    They are individuals or companies who own computing resources and are willing to make them available for the computation of tasks against payments in RLC.
+
+Worker Pool:
+    Worker pools organize the contributions of Workers.  A worker pool is a group of machines, often with similar characteristics, that is led by a Pool Manager.
+
+Intel SGX:
+    Intel SGX is used by iExec to secure computations and data running on untrusted machines over the distributed and decentralized network.
+
+TEE:
+
+
 ##Install the SDK 
 
-The iExec SDK and API provide a set of tools that allows all users to easily interact with iExec decentralized marketplace.
+The iExec SDK and API provide a set of tools that allows all users to easily interact with iExec decentralized marketplace
+Create a working directory, all setup files will be created locally.
 
 ```
 npm -g install iexec # install the cli
@@ -20,6 +76,7 @@ iexec --help
 
 
 ## What is wallet 
+
 The cryptocurrency wallet is a secure software program to interact with blockchains.
 The wallet enables user to send and receive digital currency and monitor their balance and conduct other operations as smart contract.
 
@@ -32,10 +89,11 @@ this gas is used to calculate the amount of fees that need to be paid to the net
 ## Setup your wallet and charge your wallet
 
 There is nothing to do!
-We realized the job, ask to the instructor where to download all the zip file 
+We realized the job, ask to the instructor where to download all the zip file. 
 
-unzip the file in your working directory, you will find all necessary files to interact with the blockchain and the iExec marketplace 
-and check your wallet 
+unzip the file in your working directory, you will find all necessary files to interact with the blockchain and the iExec marketplace. 
+
+Check your wallet 
 
 ```
    iexec wallet show
@@ -52,6 +110,16 @@ nRLC: 50000
 ``` 
 
 iExec is a marketplace, you can view the state of the current orderbook, the list of computing resources available.
+The following command shows the list of available order 
+
+Order Details:
+ - id : unique id of the order
+ - price: price of the order, iExec is a free market. free pricing.
+ - pool: the worker pool order provider    
+ - category: five Category available, from category 1 tiny job until category 5 corresponding to 1 hour job.
+   More detail on Pay-per-Task model <https://docs.iex.ec/paypertask.html>
+ - timestamp: order creation date. 
+ 
  
 ```
 iexec orderbook show
@@ -94,37 +162,56 @@ iexec orderbook show
 Your are ready to buy resources to run your applications. The payment will be in RLC, the iExec cryptocurrency.
   
 ## Install metamask and configure your wallet
+
+MetaMask is a web browser add-on which enables anyone to run the Ethereum DApps and manage your wallet.
+In this section you will setup your wallet, the same you use in the sdk, and will connect to the dapp store to submit a Nilearn task.
+   
+
+
 Follow instruction on the website 
 
 https://metamask.io/ 
 
 Copy your private key from wallet.json and import your wallet into metamask.
+
 Warning: remember we are in testing configuration, in mainnet, the wallet management must be done with cautious
 keep your private key safe, you can loose all your cryptocurrencies without recovery possible.     
 
 
 Open your metamask extension and select import 
+Click on the top righ mutlicolor circle to import a "New Account" 
 ![import in myether wallet](images/mew_import.png)
  
+Paste your private key, found in wallet.json
+  
 ![import private key](images/mew_newaccount.png)
 
 
-# Go to the marketplace.
-https://market.iex.ec 
-Look at the top right corner
-Explore the page 
-  
+## Go to the dapp store.
 
-##The application
+The dapps store gets a lot of applications already available,
 
-### Go to the marketplace.
-
-https://dapps.iex.ec 
-
-The dapps store gets a lot of applications already available, you can click on submit button and you will go back to the marketplace.
 with default arguments to submit a task by filling (bying an order).
 
+
+
+https://dapps.iex.ec, watch your metamask extension to allow the connection
+ 
+
+- Look at the top right corner and explore the wallet management 
+
+- Explore the page.
+  
+
+- 
+## The application
+
+
 Select Nilearn application and launch a execution.
+
+Monitor your execution by clicking on "my trades".  
+![import private key](images/mew_newaccount.png)
+
 
 
 ### The software: Nilearn 
@@ -147,7 +234,7 @@ The initial example can be found here
 The second plot applies a threeshold to hightlighs the more active area (first plot without threeshold)    
 
 
-The data are available at www.neurovault.com, a public repository of unthresholded statistical maps, 
+The data are available at <www.neurovault.org>, a public repository of unthresholded statistical maps, 
 parcellations, and atlases of the brain
 
 
