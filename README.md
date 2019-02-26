@@ -5,7 +5,10 @@ In order to transact between multiple parties within iExec, an Ethereum wallet i
 First, you will need to create your Ethereum wallet and credit it with Ethereum tokens (ETH), before running the application.
 While iExec is in its development phase, we allow transactions on Ethereum’s Kovan Network. 
 Sometimes referred to as test network, it uses Kovan ETH tokens that hold no real value and are used solely for testing purposes.
- 
+
+
+![Marketplace](images/Big_picture.png)
+
 
 # Introduction
 
