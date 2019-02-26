@@ -100,15 +100,16 @@ The cryptocurrency wallet is a secure software program to interact with blockcha
 
 The wallet enables user to send and receive digital currency, monitor their balance and conduct other operations as smart contract. 
 
-iExec service runs on ethereum blockchain, as a collection of smart contracts. The deal between agents (data owner, resources provider, developer and end users) are made using RLC token. 
+iExec service runs on ethereum blockchain, as a collection of smart contracts. 
 
 This transaction execution (smart contract) takes some amount of gas in ETH,
 this gas is used to calculate the amount of fees that need to be paid to the network in order to execute an operation.
 
 
-## 3. Setup your wallet in the iExec SDK
+## 3. Setup your wallet with the iExec SDK
 
 There is nothing to do!
+
 We create for you a wallet charged in Eth and RLC, ask us where to download the files. 
 
 Unzip the file in your working directory, you will find all necessary files to interact with the blockchain and the iExec marketplace. 
@@ -140,7 +141,7 @@ Order Details:
  - id : unique id of the order
  - price: price of the order, iExec is a free market. free pricing.
  - pool: the worker pool order provider    
- - category: five Category available, from category 1 tiny job until category 5 corresponding to 1 hour job.  
+ - category: from category 1 tiny job until category 5 corresponding to a 1 hour task.  
    
    More detail on Pay-per-Task model <https://docs.iex.ec/paypertask.html>
  - timestamp: order creation date. 
@@ -184,7 +185,7 @@ iexec orderbook show
 ℹ trade in the browser at https://market.iex.ec
 
 ``` 
-Your are ready to buy resources to run your applications.
+Your are ready to buy resources order to run your applications.
  
 The payment will be in RLC, the iExec cryptocurrency.
   
@@ -230,7 +231,7 @@ with default arguments to submit a task by filling (bying an order).
 
 <https://dapps.iex.ec>
 
-watch your metamask extension to allow the connection
+watch the metamask extension to allow the connection
  
 
 - Look at the top right corner and explore the wallet management 
@@ -242,6 +243,7 @@ watch your metamask extension to allow the connection
 
 
 Nilearn is a Python module for fast and easy statistical learning on NeuroImaging data.
+
 As a healthcare framework, user should manage private and sensitive medical data.
 
 <https://nilearn.github.io/>
@@ -250,7 +252,7 @@ It leverages the scikit-learn Python toolbox for multivariate statistics with ap
 such as predictive modelling, classification, decoding, or connectivity analysis.
 
 The application consists in plotting a statistical maps to measure the brain activity
-The second plot applies a threeshold to hightlighs the more active area (first plot without threeshold)    
+The second plot applies a threeshold to highligth the most active brain area.
 
 more details in <https://en.wikipedia.org/wiki/Statistical_parametric_mapping>
 
@@ -267,9 +269,9 @@ Nilearn software will download the input data if it is present on the current
 
 ### Prepare the dApp
 
-Application must follow some requirements to be usable in iExec, nothing really complex but we supports 
+Application must follow some requirements to be used in iExec, nothing really complex but we supports 
 - application with finite elapsed time
-- deterministic application.
+- deterministic application
 - no GUI, remote execution probably on a server  
 - dockerized pplication     
 
@@ -284,8 +286,8 @@ Docker Engine is the most widely used container engine. A Docker container image
 Docker is very convenient because it simplifies the deployment process, while ensuring consistency and repeatability in builds. Different people at different times will therefore build the same binary and obtain the same application behaviour.
 Another feature of Docker is the possibility of creating new layers that build on top of existing images. These existing images could be yours, or images proposed by the community.
 
-A list of applications with their docker images can be found at
-https://github.com/iExecBlockchainComputing/iexec-apps
+A list of applications examples with their docker images can be found at
+<https://github.com/iExecBlockchainComputing/iexec-apps>
      
 
 For the nilearn application,
@@ -294,9 +296,8 @@ The docker source can be found
 <https://github.com/ericr6/nilearn>
 
 From the initial code, we implement few modifications
- - no UI, nilearn usually run within iPyttohn  with interactive plotting, we slightly modify the code to save the figure .
- - We also isolate the input data.     
- - data input
+ - disable interative plotting: nilearn usually run within iPython, we slightly modify the code to save the figure in a output directory. 
+ - Data management is modified to accept data input, and prepare the next step, support private data as input. 
 
 
 ### Execution the application.
@@ -353,14 +354,13 @@ Let’s locally encrypt the data and push it on a public file hosting service, s
 Download the blender model `iexec-rlc.blend <https://raw.githubusercontent.com/iExecBlockchainComputing/iexec-dapps-registry/master/iExecBlockchainComputing/Blender/iexec-rlc.blend>`_,
 and copy the file in the *./tee/inputs* folder.
 
-.. code-block:: bash
-
+```console
     cp iexec-rlc.blend ./tee/inputs
+```
 
 Encrypt the input data:
 
-.. code-block:: bash
-
+```console
     iexec tee encryptedpush --application 0x2f3422f2805693cf741ee32707d57923ef6fa55f
     ℹ using chain [kovan]
     ⠅⡘ ▶ encrypting data from /home/eric/pm/test/tee/inputs and uploadingcli: Pulling from iexechub/sgx-scone
@@ -372,6 +372,7 @@ Encrypt the input data:
     "cmdline": --sessionID 6860291353034118628213787713/application --secretManagementService 87.190.236.136  --url https://transfer.sh/NAsUs/scone-upload.zip
 
     ✔ data encrypted and uploaded
+```
 
 The above-mentioned command will return the command line parameters in string format that will be used in the next step.
 
@@ -381,18 +382,16 @@ The above-mentioned command will return the command line parameters in string fo
 
 Prepare a work order and trigger the trusted application execution:
 
-.. code-block:: bash
-
+```console
     iexec order init --buy # init work order fields in iexec.json
-
+```
 
 Now open the iexec.json config file, and edit the app and command line fields:
 
   - Address for the blender app: 0x2f3422f2805693cf741ee32707d57923ef6fa55f
   - Command line provided by the " iexec tee encryptedpush ..." command
 
-.. code-block:: javascript
-
+```console
      "order": {
         "buy": {
           "app": "0x2f3422f2805693cf741ee32707d57923ef6fa55f",
@@ -403,20 +402,20 @@ Now open the iexec.json config file, and edit the app and command line fields:
         }
       }
     }
+```
 
 Select a worker pool supporting SGX:
 
-.. code-block:: bash
-
+```console
     iexec orderbook show --category 5
+```
 
 Select an order from the worker pool with the address 0x49327538C2f418743E70Ca3495888a62B587A641.
 This worker pool supports SGX.
 
 Fill the selected order:
 
-.. code-block:: bash
-
+```console
     iexec order fill 1963
     ℹ using chain [kovan]
     ℹ app price: 1 nRLC for app 0x2f3422f2805693cf741ee32707d57923ef6fa55f
@@ -427,11 +426,11 @@ Fill the selected order:
     ? Do you want to spend 15864 nRLC to fill order with ID 1963 and submit your work Yes
     ✔ Filled order with ID 1963
     ✔ New work at 0x6bd60b2c01a161c46915c6a12553eaaee332f785 submitted to workerpool 0x49327538c2f418743e70ca3495888a62b587a641
+```
 
 Monitor your order:
 
-.. code-block:: bash
-
+```console
     iexec work show 0x6bd60b2c01a161c46915c6a12553eaaee332f785
     ℹ using chain [kovan]
     ✔ work 0x6bd60b2c01a161c46915c6a12553eaaee332f785 status is COMPLETED, details:
@@ -451,11 +450,11 @@ Monitor your order:
     m_stderr:
     m_beneficiary:         0x0000000000000000000000000000000000000000
     m_statusName:          COMPLETED
-
+ ```
+ 
 Download the work result once it is completed:
 
-.. code-block:: bash
-
+```console
     iexec work show 0x6bd60b2c01a161c46915c6a12553eaaee332f785 --download encryptedOutputFiles.zip
     ℹ using chain [kovan]
     ✔ work 0x6bd60b2c01a161c46915c6a12553eaaee332f785 status is COMPLETED, details:
@@ -477,14 +476,14 @@ Download the work result once it is completed:
     m_statusName:          COMPLETED
 
     ✔ downloaded work result to file /home/eric/pm/test/encryptedOutputFiles.zip.none
+```
 
 
 Move the result in the './tee/encryptedOutputs/' folder to decrypt the result:
 
-.. code-block:: bash
-
+```console
    mv encryptedOutputFiles.zip.none ./tee/encryptedOutputs/encryptedOutputFiles.zip
-
+```
 
 Please note that the user who triggered the task (i.e. the SGX application) is the only one able to download the encrypted results.
 
@@ -508,8 +507,7 @@ The procedure is done automatically in the trusted execution environment
 
 The last step is decrypting the result:
 
-.. code-block:: bash
-
+```console
     iexec tee decrypt
     ⠉⠙ ▶ decryptingcli: Pulling from iexechub/sgx-scone
 
@@ -526,6 +524,7 @@ The last step is decrypting the result:
 
     ✔ data decrypted in folder /home/eric/pm/test/tee/outputs
 
+```
 
 That’s it! Your completed and secure result is now available in the *./tee/outputs* folder.
 
@@ -533,6 +532,17 @@ Please note that only the corresponding user owns the key to decrypt the applica
 
 ## Conclusion
 
-
+  In this hands on, 
   
+  Puts a step in crypto world ...congrats,
+  interact with the iExec product 
+  discover how to use cloud services preserving privacy and ownership, you can imagine what is the impact for the future of ioT  
+  IN v3:
+  MANAGE AND MONETIZE DATA SET    
+  bUILD PRODUCTS WITH PRIVACY PRESERVING 
+  
+  
+  
+  
+   
    
