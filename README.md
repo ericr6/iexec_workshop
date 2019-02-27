@@ -14,6 +14,11 @@ Sometimes referred to as test network, it uses Kovan ETH tokens that hold no rea
 | *iExec Ecosystem* |
 
 
+| ![workflow](images/workflow.png) |
+|:--:|
+| *iExec workflow* |
+
+
 # Introduction
 
 We recommend to read a short introduction of the iExec Marketplace
@@ -24,7 +29,9 @@ and an overview of the iExec solution stack
 
 <https://docs.iex.ec/products.html>
 
-### Glossary
+
+Let's introduce important concepts and definitions of iExec and blockchain technology.
+     
 
 **Ethereum:**
 
@@ -49,8 +56,9 @@ and an overview of the iExec solution stack
 **Gas:**
 
     Transaction execution (smart contract) takes some amount of gas in ETH, Each lines of code executed cost a few amount of gas.
-    this gas is used to calculate the amount of fees that need to be paid to the network in order to execute an operation.
-    the mechanism protect the whole system. 
+    This gas is used to calculate the amount of fees that need to be paid to the network in order to execute an operation. 
+    Ethereum miners, who perform all the important tasks of verifying and processing a transaction, are awarded this particular fee for their computational services.
+    
 
 **Dapp:**
 
@@ -59,7 +67,8 @@ and an overview of the iExec solution stack
 
 **Dataset:**
 
-    A dataset is a collection of related sets of information that is composed of separate elements, such as numbers, semantic-data or variables, that can be manipulated by a computer for practical application. For example, iExec data to be used within the medial industry can be use healthcare professionals, care providers, insurers, and government agencies.
+    A dataset is a collection of related sets of information that is composed of separate elements, such as numbers, semantic-data or variables, that can be manipulated by a computer for practical application. 
+    For example, iExec data to be used within the medical industry can be use healthcare professionals, care providers, insurers, and government agencies.
 
 **Task:**
 
@@ -77,22 +86,22 @@ and an overview of the iExec solution stack
 
     Worker pools organize the contributions of Workers.  A worker pool is a group of machines, often with similar characteristics, that is led by a Pool Manager.
 
-**Intel SGX:**
-
-    Intel SGX is used by iExec to secure computations and data running on untrusted machines over the distributed and decentralized network.
-
 **TEE:**
 
     A trusted execution environment (TEE) is a secure area of a main processor.
     It guarantees code and data loaded inside to be protected with respect to confidentiality and integrity.
     A TEE provides security features such as isolated execution, integrity of applications executing with the TEE, along with confidentiality of their assets (wikipedia)
 
+**Intel SGX:**
+
+    Intel SGX is used by iExec to secure computations and data running on untrusted machines over the distributed and decentralized network.
+
 
 ## 1. Install the SDK 
 
 The iExec SDK and API provide a set of tools that allows all users to easily interact with iExec decentralized marketplace
 
-Create a working directory, all setup files will be created locally.
+Create a working directory for this tutorial, all setup files will be created locally.
 
 ```
 npm -g install iexec
@@ -101,17 +110,19 @@ iexec --help
 
 ``` 
 
-## 2. What is a wallet 
+## 2. Wallet management 
 
 The cryptocurrency wallet is a secure software program to interact with blockchains. 
 
-The wallet enables user to send and receive digital currency, monitor their balance and conduct other operations as smart contract. 
+The wallet enables user to send and receive digital currency, monitor their balance and conduct other operations as smart contract execution. 
 
 iExec service runs on ethereum blockchain, as a collection of smart contracts. 
 
 This transaction execution (smart contract) takes some amount of gas in ETH,
 this gas is used to calculate the amount of fees that need to be paid to the network in order to execute an operation.
 
+   * need RLC for access to the computing resources.
+   * need ether to interact with the services paying the necessary gas under the wood.
 
 ## 3. Setup your wallet with the iExec SDK
 
