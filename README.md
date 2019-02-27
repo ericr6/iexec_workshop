@@ -35,66 +35,66 @@ Let's introduce important concepts and definitions of iExec and blockchain techn
 
 **Ethereum:**
 
-    Ethereum is an open-source, public, blockchain-based distributed computing platform and operating system featuring smart contract functionality.
-    Ethereum allows programmers to write smart contracts - code which is executed on the
-    blockchain virtual machine. This represents a potential revolution in designing and executing services such as investment, finance, crowdfunding, internet of things, insurance, prediction markets,
-    gambling, distributed data processing, and many more - in essence, disrupting a wide swath of centralized incumbents.
+Ethereum is an open-source, public, blockchain-based distributed computing platform and operating system featuring smart contract functionality.
+Ethereum allows programmers to write smart contracts - code which is executed on the
+blockchain virtual machine. This represents a potential revolution in designing and executing services such as investment, finance, crowdfunding, internet of things, insurance, prediction markets,
+gambling, distributed data processing, and many more - in essence, disrupting a wide swath of centralized incumbents.
 
 **Smart Contract:**
 
-    Smart contracts help you exchange anything of value in a transparent, conflict-free way without needing the services of a middleman or third party. It is a computer protocol intended to digitally facilitate the negotiation of a contract. Smart contracts use blockchain to automate consensus over transactions. The transactions within these contracts are fully publicly auditable, traceable and irreversible.
+Smart contracts help you exchange anything of value in a transparent, conflict-free way without needing the services of a middleman or third party. It is a computer protocol intended to digitally facilitate the negotiation of a contract. Smart contracts use blockchain to automate consensus over transactions. The transactions within these contracts are fully publicly auditable, traceable and irreversible.
 
 **Tokens:** 
 
-    These are the tokens that act like native currency in their respective DAPPS, RLC is the token to use the services in iExec then you will need to pay with RLC.
-    While these tokens have monetary value they won’t give you any particular rights or privilege within the network itself.
+These are the tokens that act like native currency in their respective DAPPS, RLC is the token to use the services in iExec then you will need to pay with RLC.
+While these tokens have monetary value they won’t give you any particular rights or privilege within the network itself.
 
 **RLC:**
 
-    RLC tokens will be used to access the resources provided through iExec. It is the unique method of payment between application providers, server providers and data providers.
+RLC tokens will be used to access the resources provided through iExec. It is the unique method of payment between application providers, server providers and data providers.
 
 **Gas:**
 
-    Transaction execution (smart contract) takes some amount of gas in ETH, Each lines of code executed cost a few amount of gas.
-    This gas is used to calculate the amount of fees that need to be paid to the network in order to execute an operation. 
-    Ethereum miners, who perform all the important tasks of verifying and processing a transaction, are awarded this particular fee for their computational services.
+Transaction execution (smart contract) takes some amount of gas in ETH, Each lines of code executed cost a few amount of gas.
+This gas is used to calculate the amount of fees that need to be paid to the network in order to execute an operation. 
+Ethereum miners, who perform all the important tasks of verifying and processing a transaction, are awarded this particular fee for their computational services.
     
 
 **Dapp:**
 
-    Dapp is an abbreviated form for decentralized application. For a dapp, the backend code is based on a decentralized peer-to-peer network. For example, dapps can be based on Ethereum smart contracts. Contrast this a with a normal app, where the backend code runs on centralized servers.
-    iExec Dapps are powered by the decentralized cloud infrastructure with machines distributed over the Ethereum network. Rather than relying on computing power from a single centralized data center.
+Dapp is an abbreviated form for decentralized application. For a dapp, the backend code is based on a decentralized peer-to-peer network. For example, dapps can be based on Ethereum smart contracts. Contrast this a with a normal app, where the backend code runs on centralized servers.
+iExec Dapps are powered by the decentralized cloud infrastructure with machines distributed over the Ethereum network. Rather than relying on computing power from a single centralized data center.
 
 **Dataset:**
 
-    A dataset is a collection of related sets of information that is composed of separate elements, such as numbers, semantic-data or variables, that can be manipulated by a computer for practical application. 
-    For example, iExec data to be used within the medical industry can be use healthcare professionals, care providers, insurers, and government agencies.
+A dataset is a collection of related sets of information that is composed of separate elements, such as numbers, semantic-data or variables, that can be manipulated by a computer for practical application. 
+For example, iExec data to be used within the medical industry can be use healthcare professionals, care providers, insurers, and government agencies.
 
 **Task:**
 
-    A task within iExec is an instance where computing power is required.
+A task within iExec is an instance where computing power is required.
 
 **Requester:**
 
-    An individual or enterprise requesting the use of cloud resources through iExec.
+An individual or enterprise requesting the use of cloud resources through iExec.
 
 **Worker:**
 
-    They are individuals or companies who own computing resources and are willing to make them available for the computation of tasks against payments in RLC.
+They are individuals or companies who own computing resources and are willing to make them available for the computation of tasks against payments in RLC.
 
 **Worker Pool:**
 
-    Worker pools organize the contributions of Workers.  A worker pool is a group of machines, often with similar characteristics, that is led by a Pool Manager.
+Worker pools organize the contributions of Workers.  A worker pool is a group of machines, often with similar characteristics, that is led by a Pool Manager.
 
 **TEE:**
 
-    A trusted execution environment (TEE) is a secure area of a main processor.
-    It guarantees code and data loaded inside to be protected with respect to confidentiality and integrity.
-    A TEE provides security features such as isolated execution, integrity of applications executing with the TEE, along with confidentiality of their assets (wikipedia)
+A trusted execution environment (TEE) is a secure area of a main processor.
+It guarantees code and data loaded inside to be protected with respect to confidentiality and integrity.
+A TEE provides security features such as isolated execution, integrity of applications executing with the TEE, along with confidentiality of their assets (wikipedia)
 
 **Intel SGX:**
 
-    Intel SGX is used by iExec to secure computations and data running on untrusted machines over the distributed and decentralized network.
+Intel SGX is used by iExec to secure computations and data running on untrusted machines over the distributed and decentralized network.
 
 
 ## 1. Install the SDK 
@@ -587,9 +587,6 @@ In the next release of iExec:
   * manage and monetize data set.
   * Build product with privacy preserving properties.
   
-
-
-
 **Links**
 
 - The iExec Dapp Store: https://dapps.iex.ec
