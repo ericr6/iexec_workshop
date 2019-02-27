@@ -208,7 +208,7 @@ iexec orderbook show
 ``` 
 
   
-## 5. iExec product in your web browser
+## 5. iExec products in your web browser
   
 In this section you will setup your wallet, the same you use in the sdk, and will connect to the dapp store to submit a Nilearn task.
 
