@@ -121,19 +121,20 @@ iExec service runs on ethereum blockchain, as a collection of smart contracts.
 This transaction execution (smart contract) takes some amount of gas in ETH,
 this gas is used to calculate the amount of fees that need to be paid to the network in order to execute an operation.
 
-   * need RLC for access to the computing resources.
+   * need RLC to access the computing resources.
    * need ether to interact with the services paying the necessary gas under the wood.
+   
 
 ## 3. Setup your wallet with the iExec SDK
 
 There is nothing to do!
 
-We create for you a wallet charged in Eth and RLC, ask us where to download the files. 
+We created and charge a wallet with Eth and RLC, ask where to download the related files. 
 
-Unzip the file in your working directory, you will find all necessary files to interact with the blockchain and the iExec marketplace. 
+Unzip the file in the working directory, nothing else to do.
+It contains all the necessary files to interact with the blockchain and the iExec marketplace. 
 
-
-Check your wallet 
+Then check your wallet 
 
 ```
    iexec wallet show
@@ -149,14 +150,16 @@ nRLC: 50000
 
 ``` 
 
-## 4. Check the orderbook
+## 4. Finding computing resources
 
+ 
+You can view the state of the current orderbook, the list of computing resources available, as a trade exchange.  
 
-iExec is a marketplace, you can view the state of the current orderbook, the list of computing resources available.
-The following command shows the list of available order 
+The following command shows the list of available order: 
+
 
 Order Details:
- - id : unique id of the order
+ - id : id of the order
  - price: price of the order, iExec is a free market. free pricing.
  - pool: the worker pool order provider    
  - category: from category 1 tiny job until category 5 corresponding to a 1 hour task.  
@@ -203,28 +206,26 @@ iexec orderbook show
 ℹ trade in the browser at https://market.iex.ec
 
 ``` 
-Your are ready to buy resources order to run your applications.
- 
-The payment will be in RLC, the iExec cryptocurrency.
+
   
+## 5. iExec product in your web browser
   
-## 5. Install metamask and configure your wallet
+In this section you will setup your wallet, the same you use in the sdk, and will connect to the dapp store to submit a Nilearn task.
 
 MetaMask is a web browser add-on which enables anyone to run the Ethereum DApps and manage your wallet.
-In this section you will setup your wallet, the same you use in the sdk, and will connect to the dapp store to submit a Nilearn task.
-   
 
+**Install and configure metamask with your wallet**
+   
 Follow instruction on the website 
 
 https://metamask.io/ 
 
-Copy your private key found in the wallet.json and import your wallet into metamask.
+Copy the private key found in the wallet.json and import your wallet into metamask.
 
 
-<aside class="warning">
-keep your private key safe, you can loose all your cryptocurrencies without recovery possible.
-not here we are on "test" kovan network. 
-</aside>
+_**Warning:** keep your private key safe, you can loose all your cryptocurrencies._
+
+Just a reminder even if we are on testing network kovan. 
 
 
 Open your metamask extension and select import 
@@ -233,23 +234,18 @@ Click on the top righ mutlicolor circle to import a "New Account"
 
 ![import in myether wallet](images/mew_import.png)
 
+Paste your private key (found in wallet.json)
  
-Paste your private key, found in wallet.json
-
-  
 ![import private key](images/mew_newaccount.png)
-
-
 
 ## 6. the iExec dapp store.
 
 The dapps store gets a lot of ready to use applications,
-with default arguments to submit a task by filling (bying an order).
-
+with default arguments to submit a task by filling a order with your execution request.
 
 <https://dapps.iex.ec>
 
-watch the metamask extension to allow the connection
+Metamask will ask to allow the connection.
  
 
 - Look at the top right corner and explore the wallet management 
@@ -257,7 +253,7 @@ watch the metamask extension to allow the connection
 - Explore the page.
   
  
-## 7. Start an application: 
+## 7. Select and execute an application: 
 
 
 Nilearn is a Python module for fast and easy statistical learning on NeuroImaging data.
@@ -269,8 +265,9 @@ As a healthcare framework, user should manage private and sensitive medical data
 It leverages the scikit-learn Python toolbox for multivariate statistics with applications 
 such as predictive modelling, classification, decoding, or connectivity analysis.
 
-The application consists in plotting a statistical maps to measure the brain activity
-The second plot applies a threeshold to highligth the most active brain area.
+The example consists in plotting a statistical maps to measure the brain activity.
+
+The second plot just applies a threeshold to highlight the most active brain area.
 
 more details in <https://en.wikipedia.org/wiki/Statistical_parametric_mapping>
 
@@ -282,18 +279,18 @@ The data are available at <www.neurovault.org>, a public repository of unthresho
 parcellations, and atlases of the brain
 
 
-Nilearn software will download the input data if it is present on the current 
+Nilearn software manages the input data from different public repository or from local files 
 
 
 ### Prepare the dApp
 
 Application must follow some requirements to be used in iExec, nothing really complex but we supports 
 - application with finite elapsed time
-- deterministic application
-- no GUI, remote execution probably on a server  
-- dockerized pplication     
+- deterministic application, this is mandatory when requester ask for consolidated results, with a certain level of trust.
+- no GUI, server mode only  
+- dockerized application     
 
-More details in 
+For more details  
 
 <https://docs.iex.ec/dockerapp.html>
 
@@ -308,37 +305,48 @@ A list of applications examples with their docker images can be found at
 <https://github.com/iExecBlockchainComputing/iexec-apps>
      
 
-For the nilearn application,
+### The nilearn dApp
 
+We present here quickly what has been done to support Nilearn on iExec.  
+ 
 The docker source can be found 
 <https://github.com/ericr6/nilearn>
 
 From the initial code, we implement few modifications
  - disable interative plotting: nilearn usually run within iPython, we slightly modify the code to save the figure in a output directory. 
  - Data management is modified to accept data input, and prepare the next step, support private data as input. 
-
+ - blockchain registration and Dappstore registration (very easy and quick). <https://docs.iex.ec/dockerapp.html> for more details.
+    
 
 ### Execution the application.
- 
-It should fail and this is expected, your wallet is charged with RLC and ETH but the deal is denied.
 
-The smarts contract managing your task does not have direct access to your wallet, 
-you have to transfer the required amount (or more) of RLC to the account and allow the smart contract to start the task execution.
+From the Dapp store, you can directly submit the nilearn task described above. 
+ 
+It should fail...
+
+while your wallet is charged with RLC and ETH but the deal is denied.
+
+but this is expected...
+
+Why?
+
+The smarts contract managing your task does not have a direct access to your wallet, 
+
+First, you have to transfer the required amount (or more) of RLC to the account,
+ 
+that allows the smart contract to start the task execution.
  
 After the deal signed, monitor your execution by clicking on "my trades".  
 
 ![import private key](images/explorer.png)
 
-   
-
 ## 8. Secure execution with iExec and intel SGX
 
 One use case possible is to provide data to an application preserving the privacy and the ownership of the data.
 
-
 iExec provides a full end to end data protection for blockchain-based computation using Intel® SGX.
 
-End-to-end protection means full protection of the application data, user data, embedded data as well as application output data.
+End-to-end protection means full protection of the application data, user data, embedded data as well as application results.
 
 Intel® Software Guard Extensions (SGX) is a technology that runs code and data in CPU-hardened “enclaves” or a ‘Trusted Execution Environment’ (TEE).
 
@@ -346,21 +354,37 @@ The enclave is a trusted area of memory where critical aspects of the applicatio
 
 Your account must be topped up with RLC in order to trigger the execution of an application.
 
-      
-
 ## 9. Run the dApp with privacy preserving
 
-The feature is only available within the SDK.
-In this section, you will manage a private execution on a cloud environment and will use and pay for a computing resources.
-Privacy is provided by design, and the worker      
+Nilearn is unfortunately not available within SGX, development of the SGX compatible docker image is in progress. 
 
-   ### 9.0 specific dapp.
+The Nilearn docker image has to be customized and it has not been realized yet..
+
+Today, an app developer can't realize the modification by his own.
+    
+Solution to automatically modified container are coming, but this is a active R&D topics, progressing at a fast pace.    
+
+We propose to introduce the workflow with an existing use case, using Blender, a 3d rendering software, with private data.
+
+The workflow will be exactly the same.      
+   
+The tutorial will be update asap.   
+
+
+Privacy preserving feature is only available within the SDK.
+
+In this section, you will manage a private execution on a cloud environment and using remote machine. 
+
+**The host will never get access to your code, your data input and the results.** 
+
+Privacy is provided by design, mixing blockchain and TEE solution.        
+
+
+   ### 9.0 Specific dapp.
     
    The docker image used needs customization to run in Trust Execution Environments. 
-   Today, application has to be prepared and it is not an easy step, but sgx is an emerging technology and tools to port docker application are progressing fast.
+   Today, application has to be prepared and it is not an easy step, but sgx is an emerging technology and tools to port docker application are progressing at a fast pace.
          
-
-
    ### 9.1 Encrypt and push data on a public server
 
 Let’s locally encrypt the data and push it on a public file hosting service, so that the worker is able to access it:
@@ -550,16 +574,42 @@ Please note that only the corresponding user owns the key to decrypt the applica
 
 ## Conclusion
 
-  In this hands on, 
+In this hands on, 
   
-  Puts a step in crypto world ...congrats,
-  interact with the iExec product 
-  discover how to use cloud services preserving privacy and ownership, you can imagine what is the impact for the future of ioT  
-  IN v3:
-  MANAGE AND MONETIZE DATA SET    
-  bUILD PRODUCTS WITH PRIVACY PRESERVING 
+  * Puts a step in crypto world...
   
+  * Interact with the iExec products 
+   
+  * Discover how to use cloud services preserving privacy and ownership  
   
+In the next release of iExec:
+  
+  * manage and monetize data set.
+  * Build product with privacy preserving properties.
+  
+
+
+
+**Links**
+
+- The iExec Dapp Store: https://dapps.iex.ec
+- The iExec Marketplace: https://market.iex.ec
+- The iExec Explorer: https://explorer.iex.ec
+- The iExec Pools registry: https://pools.iex.ec
+- The RLC faucet: https://faucet.iex.ec
+- iExec main documentation: https://docs.iex.ec
+- https://github.com/iExecBlockchainComputing : source code, SDK, dapps registry to apply for Dapp Store listing.
+
+
+For technical support, contact us:
+
+- Slack: https://slack.iex.ec
+
+- Email : support@iex.ec
+
+  
+
+
   
   
    
